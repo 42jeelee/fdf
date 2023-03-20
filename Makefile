@@ -6,7 +6,7 @@
 #    By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/14 17:46:30 by jeelee            #+#    #+#              #
-#    Updated: 2023/03/14 17:57:50 by jeelee           ###   ########.fr        #
+#    Updated: 2023/03/20 19:58:52 by jeelee           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CFLAGS	=	-Wall -Wextra -Werror
 MLX		=	libmlx.dylib
 MLX_DIR	=	./minilibx
 
-SRC		=	main.c
+SRC		=	main.c draw.c hooks.c
 
 OBJ		=	$(SRC:.c=.o)
 

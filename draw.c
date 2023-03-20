@@ -1,31 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/14 16:43:49 by jeelee            #+#    #+#             */
-/*   Updated: 2023/03/20 20:00:43 by jeelee           ###   ########.fr       */
+/*   Created: 2023/03/20 19:50:12 by jeelee            #+#    #+#             */
+/*   Updated: 2023/03/20 20:01:28 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int	main(void)
+void	bresenhams(t_dot d1, t_dot d2, t_vars *vars)
 {
-	t_vars	vars;
-	t_dot	d1;
-	t_dot	d2;
+	t_dot	curr;
+	t_dot	diff;
+	int		p;
 
-	vars.mlx = mlx_init();
-	vars.win = mlx_new_window(vars.mlx, 500, 500, "Title");
-	d1.x = 20;
-	d1.y = 20;
-	d2.x = 430;
-	d2.y = 380;
-	bresenhams(d1, d2, &vars);
-	mlx_key_hook (vars.win, key_hook, &vars);
-	mlx_loop(vars.mlx);
-	return (0);
+	curr.x = d1.x;
+	curr.y = d1.y;
+	diff.x = d2.x - d1.x;
+	diff.y = d2.y - d1.y;
+	p = (2 * diff.y) - diff.x;
+	while (curr.x <= d2.x)
+	{
+		mlx_pixel_put(vars->mlx, vars->win, curr.x, curr.y, 0xFFFFFF);
+		curr.x++;
+		if (p < 0)
+			p = p + (2 * diff.y);
+		else
+		{
+			p = p + (2 * diff.y) - (2 * diff.x);
+			curr.y++;
+		}
+	}
 }
