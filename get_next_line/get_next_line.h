@@ -1,24 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/14 16:43:49 by jeelee            #+#    #+#             */
-/*   Updated: 2023/03/21 13:36:40 by jeelee           ###   ########.fr       */
+/*   Created: 2022/07/26 15:57:20 by jeelee            #+#    #+#             */
+/*   Updated: 2022/08/20 15:43:52 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-int	main(int ac, char **av)
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
+
+# include <unistd.h>
+# include <stdlib.h>
+
+typedef struct s_buff
 {
-	t_mapinfo	mapinfo;
+	int				fd;
+	unsigned char	buff[BUFFER_SIZE];
+	size_t			idx;
+	ssize_t			rd_size;
+}	t_buff;
 
-	if (ac != 2)
-		return (-1);
-	get_map(av[1], &mapinfo);
-	print_map(&mapinfo);
-	return (0);
-}
+char	*get_next_line(int fd);
+size_t	ft_strlen(char *str);
+size_t	set_line_into(char *new_line, char *line, size_t size);
+
+#endif

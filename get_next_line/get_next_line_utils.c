@@ -1,24 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/14 16:43:49 by jeelee            #+#    #+#             */
-/*   Updated: 2023/03/21 13:36:40 by jeelee           ###   ########.fr       */
+/*   Created: 2022/07/29 14:07:37 by jeelee            #+#    #+#             */
+/*   Updated: 2022/08/20 15:44:46 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "get_next_line.h"
 
-int	main(int ac, char **av)
+size_t	ft_strlen(char *str)
 {
-	t_mapinfo	mapinfo;
+	size_t	size;
 
-	if (ac != 2)
-		return (-1);
-	get_map(av[1], &mapinfo);
-	print_map(&mapinfo);
-	return (0);
+	if (!str)
+		return (0);
+	size = 0;
+	while (str[size])
+		size++;
+	return (size);
+}
+
+size_t	set_line_into(char *new_line, char *line, size_t size)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < size)
+	{
+		new_line[i] = line[i];
+		i++;
+	}
+	return (i);
 }
