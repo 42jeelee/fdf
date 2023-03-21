@@ -6,7 +6,7 @@
 #    By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/14 17:46:30 by jeelee            #+#    #+#              #
-#    Updated: 2023/03/21 15:47:54 by jeelee           ###   ########.fr        #
+#    Updated: 2023/03/21 15:55:33 by jeelee           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,10 +18,8 @@ CFLAGS	=	-Wall -Wextra -Werror
 MLX		=	libmlx.dylib
 MLX_DIR	=	./minilibx
 
-GNL_DIR	=	get_next_line
-
 SRC		=	main.c draw.c hooks.c get_map.c get_map_utils.c \
-			$(GNL_DIR)/get_next_line.c $(GNL_DIR)/get_next_line_utils.c
+			get_next_line.c get_next_line_utils.c
 
 OBJ		=	$(SRC:.c=.o)
 

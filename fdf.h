@@ -6,7 +6,7 @@
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 19:50:53 by jeelee            #+#    #+#             */
-/*   Updated: 2023/03/21 15:31:07 by jeelee           ###   ########.fr       */
+/*   Updated: 2023/03/21 15:56:28 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define FDF_H
 
 # include "minilibx/mlx.h"
-# include "get_next_line/get_next_line.h"
+# include "get_next_line.h"
 # include <stdlib.h>
 # include <fcntl.h>
 
