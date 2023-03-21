@@ -6,7 +6,7 @@
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 13:27:39 by jeelee            #+#    #+#             */
-/*   Updated: 2023/03/21 19:02:43 by jeelee           ###   ########.fr       */
+/*   Updated: 2023/03/21 20:17:17 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,17 @@ void	print_only_z(t_mapinfo *mapinfo)
 		if (i && !((i + 1) % mapinfo->width))
 			printf("\n");
 	}
+}
+
+void	print_line_dot(t_dot d1, t_dot d2, int i, t_mapinfo *mapinfo)
+{
+	printf("(%d, %d) -> (%d, %d) ", d1.x, d1.y, d2.x, d2.y);
+	if (i && !((i + 1) % mapinfo->width))
+		printf("\n");
+}
+
+void	print_window_size(t_vars *vars)
+{
+	printf("MAX WIDTH: %d\nMAX HEIGHT: %d\nGAP: %d\n", vars->width, \
+		vars->height, vars->gap);
 }

@@ -6,7 +6,7 @@
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 19:50:53 by jeelee            #+#    #+#             */
-/*   Updated: 2023/03/21 19:39:45 by jeelee           ###   ########.fr       */
+/*   Updated: 2023/03/21 20:17:23 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ typedef struct s_mapinfo
 
 void	bresenhams(t_dot d1, t_dot d2, t_img *img);
 void	set_gap(t_vars *vars, t_mapinfo *mapinfo);
+void	draw_map(t_mapinfo *mapinfo, t_vars *vars, t_img *img);
 
 void	rotate_x(int *y, int *z, double alpha);
 void	rotate_y(int *x, int *z, double beta);
@@ -73,5 +74,7 @@ int		get_map(char *filename, t_mapinfo *mapinfo);
 void	print_map(t_mapinfo *mapinfo);
 void	print_only_z(t_mapinfo *mapinfo);
 void	print_xyz(t_mapinfo *mapinfo);
+void	print_line_dot(t_dot d1, t_dot d2, int i, t_mapinfo *mapinfo);
+void	print_window_size(t_vars *vars);
 
 #endif
