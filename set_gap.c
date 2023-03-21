@@ -6,7 +6,7 @@
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 19:27:16 by jeelee            #+#    #+#             */
-/*   Updated: 2023/03/21 20:25:17 by jeelee           ###   ########.fr       */
+/*   Updated: 2023/03/21 22:21:38 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,6 @@ void	set_gap(t_vars *vars, t_mapinfo *mapinfo)
 	while ((mapinfo->height * vars->gap) + WINDOW_MARGIN > WINDOW_MAX_HEIGHT || \
 		(mapinfo->width * vars->gap) + WINDOW_MARGIN > WINDOW_MAX_WIDTH)
 		(vars->gap)--;
-	vars->height = (mapinfo->height * vars->gap) + (WINDOW_MARGIN * 2);
-	vars->width = (mapinfo->width * vars->gap) + (WINDOW_MARGIN * 2);
+	vars->height = ((mapinfo->height - 1) * vars->gap) + (WINDOW_MARGIN * 2);
+	vars->width = ((mapinfo->width - 1) * vars->gap) + (WINDOW_MARGIN * 2);
 }
