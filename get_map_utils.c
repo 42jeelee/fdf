@@ -6,7 +6,7 @@
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 13:26:10 by jeelee            #+#    #+#             */
-/*   Updated: 2023/03/21 15:27:34 by jeelee           ###   ########.fr       */
+/*   Updated: 2023/03/21 19:01:15 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	is_hexnumber(char c)
 	return (-1);
 }
 
-int	map_color(char *str, t_map *dot, int *idx)
+int	map_color(char *str, t_dot *dot, int *idx)
 {
 	int	tmp;
 
@@ -46,7 +46,7 @@ int	map_color(char *str, t_map *dot, int *idx)
 	return (0);
 }
 
-int	color_atoi(char *str, t_map *dot, int *idx)
+int	color_atoi(char *str, t_dot *dot, int *idx)
 {
 	dot->color = 0;
 	if (str[*idx] == ',')
@@ -58,7 +58,7 @@ int	color_atoi(char *str, t_map *dot, int *idx)
 	return (0);
 }
 
-int	map_atoi(char *str, t_map *dot, int *idx)
+int	map_atoi(char *str, t_dot *dot, int *idx)
 {
 	int	m;
 

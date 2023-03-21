@@ -6,7 +6,7 @@
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 11:02:55 by jeelee            #+#    #+#             */
-/*   Updated: 2023/03/21 15:10:37 by jeelee           ###   ########.fr       */
+/*   Updated: 2023/03/21 19:07:55 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	get_width(char *line)
 {
 	int		width;
 	int		idx;
-	t_map	tmp;
+	t_dot	tmp;
 
 	width = 0;
 	idx = 0;
@@ -32,17 +32,17 @@ int	get_width(char *line)
 int	mapjoin(t_mapinfo *mapinfo)
 {
 	int		i;
-	t_map	*tmp;
+	t_dot	*tmp;
 
 	if (!mapinfo->map)
 	{
-		mapinfo->map = (t_map *)malloc(sizeof(t_map) * mapinfo->width);
+		mapinfo->map = (t_dot *)malloc(sizeof(t_dot) * mapinfo->width);
 		if (!mapinfo->map)
 			return (-1);
 	}
 	else
 	{
-		tmp = (t_map *)malloc(sizeof(t_map) * \
+		tmp = (t_dot *)malloc(sizeof(t_dot) * \
 			(mapinfo->width * (mapinfo->height + 1)));
 		if (!tmp)
 			return (-1);
@@ -67,9 +67,13 @@ int	make_map_byline(char *line, t_mapinfo *mapinfo)
 	while (++x < (mapinfo->height * mapinfo->width) \
 		+ mapinfo->width - 1)
 	{
+		(mapinfo->map)[x].x = x - (mapinfo->height * mapinfo->width);
+		(mapinfo->map)[x].y = mapinfo->height;
 		if (map_atoi(line, &(mapinfo->map)[x], &idx) != 0)
 			return (-1);
 	}
+	(mapinfo->map)[x].x = x - (mapinfo->height * mapinfo->width);
+	(mapinfo->map)[x].y = mapinfo->height;
 	if (map_atoi(line, &(mapinfo->map)[x], &idx) != 1)
 		return (-1);
 	mapinfo->height++;
@@ -100,6 +104,7 @@ int	get_map(char *filename, t_mapinfo *mapinfo)
 {
 	int	fd;
 
+	mapinfo->map = 0;
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
 		return (-1);
