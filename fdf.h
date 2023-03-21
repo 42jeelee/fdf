@@ -6,7 +6,7 @@
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 19:50:53 by jeelee            #+#    #+#             */
-/*   Updated: 2023/03/21 13:41:43 by jeelee           ###   ########.fr       */
+/*   Updated: 2023/03/21 15:31:07 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,6 @@ int		map_atoi(char *str, t_map *dot, int *idx);
 int		get_map(char *filename, t_mapinfo *mapinfo);
 
 void	print_map(t_mapinfo *mapinfo);
+void	print_only_z(t_mapinfo *mapinfo);
 
 #endif
