@@ -6,7 +6,7 @@
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 16:45:06 by jeelee            #+#    #+#             */
-/*   Updated: 2023/03/22 18:12:42 by jeelee           ###   ########.fr       */
+/*   Updated: 2023/03/22 20:03:49 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int	get_dot_color(char *line, t_dot *dot, int *idx)
 	const char	*hex = "0123456789abcdef";
 	int			i;
 
+	(*idx)++;
 	if (line[(*idx)++] != '0')
 		return (-1);
 	if (line[(*idx)++] != 'x')
