@@ -6,7 +6,7 @@
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 16:00:58 by jeelee            #+#    #+#             */
-/*   Updated: 2023/03/22 19:09:51 by jeelee           ###   ########.fr       */
+/*   Updated: 2023/03/22 19:51:54 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,12 @@ int	get_map_width(char *line)
 	t_dot	tmp;
 
 	width = 0;
-	i = -1;
-	while (line[++i])
+	i = 0;
+	while (line[i])
 	{
-		if (!('0' <= line[i] && line[i] <= '9') || \
+		if (line[i] == '\n')
+			break ;
+		if (!('0' <= line[i] && line[i] <= '9') && \
 			(!(line[i] == '-' && ('0' <= line[i + 1] && line[i + 1] <= '9'))))
 			return (-1);
 		if (map_atoi(line, &tmp, &i) == -1)
@@ -47,16 +49,17 @@ int	put_map_byline(char *line, t_map *map)
 	int	idx;
 
 	idx = 0;
-	i = -1;
-	while (++i < map->width)
+	i = map->width * (map->height - 1);
+	while (i < map->width * map->height)
 	{
-		if (!('0' <= line[i] && line[i] <= '9') || \
-			(!(line[i] == '-' && ('0' <= line[i + 1] && line[i + 1] <= '9'))))
+		if (!('0' <= line[idx] && line[idx] <= '9') && \
+			(!(line[idx] == '-' && ('0' <= line[idx + 1] && line[idx + 1] <= '9'))))
 			return (-1);
-		(map->map)[i].x = i;
+		(map->map)[i].x = i - (map->width * (map->height - 1));
 		(map->map)[i].y = map->height - 1;
-		if (map_atoi(line, &(map->map)[i], &idx) != -1)
+		if (map_atoi(line, &(map->map)[i], &idx) == -1)
 			return (-1);
+		i++;
 		while (line[idx] == ' ')
 			idx++;
 	}
