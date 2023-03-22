@@ -6,7 +6,7 @@
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 16:45:37 by jeelee            #+#    #+#             */
-/*   Updated: 2023/03/22 19:06:35 by jeelee           ###   ########.fr       */
+/*   Updated: 2023/03/22 19:10:47 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ int	free_map(t_map *map)
 			free(map->map);
 		free(map);
 	}
-	return (NULL);
+	return (0);
 }
 
-int	is_in_string(char c, char *str)
+int	is_in_string(char c, const char *str)
 {
 	int	i;
 

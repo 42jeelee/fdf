@@ -6,7 +6,7 @@
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 15:56:32 by jeelee            #+#    #+#             */
-/*   Updated: 2023/03/22 19:06:45 by jeelee           ###   ########.fr       */
+/*   Updated: 2023/03/22 19:10:30 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int		get_dot_color(char *line, t_dot *dot, int *idx);
 int		map_atoi(char *line, t_dot *dot, int *idx);
 
 int		free_map(t_map *map);
-int		is_in_string(char c, char *str);
+int		is_in_string(char c, const char *str);
 int		map_widthjoin(t_map *map);
 
 void	print_map(t_map *map);

@@ -6,7 +6,7 @@
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 16:00:58 by jeelee            #+#    #+#             */
-/*   Updated: 2023/03/22 19:07:08 by jeelee           ###   ########.fr       */
+/*   Updated: 2023/03/22 19:09:51 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ int	read_map(int fd, t_map *map)
 	char	*line;
 
 	line = get_next_line(fd);
-	map->height == 1;
+	map->height = 1;
 	map->width = get_map_width(line);
 	if (map_widthjoin(map) == -1)
 		return (-1);
@@ -101,7 +101,7 @@ t_map	*get_map(char *filename)
 	map->width = 0;
 	map->map = 0;
 	fd = open(filename, O_RDONLY);
-	if (read_map(fd, &map) == -1)
+	if (read_map(fd, map) == -1)
 		return (fail_read_map(map, fd));
 	close(fd);
 	return (map);
