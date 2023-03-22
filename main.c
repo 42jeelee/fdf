@@ -6,7 +6,7 @@
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 15:56:19 by jeelee            #+#    #+#             */
-/*   Updated: 2023/03/23 01:32:20 by jeelee           ###   ########.fr       */
+/*   Updated: 2023/03/23 01:36:31 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int	main(int ac, char **av)
 		&img.size_line, &img.endian);
 	set_coordinate(map, &mlx);
 	print_xy(map);
+	mlx_key_hook(mlx.win, key_hook, &mlx);
 	draw_image(map, &img);
 	mlx_put_image_to_window(mlx.mlx, mlx.win, img.img, 0, 0);
 	mlx_loop(mlx.mlx);

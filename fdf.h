@@ -6,7 +6,7 @@
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 15:56:32 by jeelee            #+#    #+#             */
-/*   Updated: 2023/03/23 01:31:00 by jeelee           ###   ########.fr       */
+/*   Updated: 2023/03/23 01:36:50 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,8 @@ int		map_atoi(char *line, t_dot *dot, int *idx);
 int		free_map(t_map *map);
 int		is_in_string(char c, const char *str);
 int		map_widthjoin(t_map *map);
+
+int		key_hook(int keycode, t_mlx *mlx);
 
 void	print_map(t_map *map);
 void	print_xy(t_map *map);
