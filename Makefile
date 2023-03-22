@@ -6,7 +6,7 @@
 #    By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/22 23:01:36 by jeelee            #+#    #+#              #
-#    Updated: 2023/03/23 00:01:01 by jeelee           ###   ########.fr        #
+#    Updated: 2023/03/23 01:29:31 by jeelee           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CFLAGS	=	-Wall -Wextra -Werror
 MLX		=	libmlx.dylib
 MLX_DIR	=	./minilibx
 
-SRC		=	main.c get_map.c read_map.c utils.c set_gap.c \
+SRC		=	main.c get_map.c read_map.c utils.c set_gap.c draw_image.c set_coordinate.c \
 			get_next_line.c get_next_line_utils.c print_it.c
 
 OBJ		=	$(SRC:.c=.o)
