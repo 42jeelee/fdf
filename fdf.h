@@ -6,7 +6,7 @@
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 15:56:32 by jeelee            #+#    #+#             */
-/*   Updated: 2023/03/22 19:53:56 by jeelee           ###   ########.fr       */
+/*   Updated: 2023/03/23 00:01:59 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,10 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include "get_next_line.h"
+
+# define WINDOW_MAX_HEIGHT 1500
+# define WINDOW_MAX_WIDTH 2000
+# define WINDOW_MARGIN 200
 
 typedef struct s_dot
 {
@@ -32,7 +36,17 @@ typedef struct s_map
 	struct s_dot	*map;
 }	t_map;
 
+typedef struct s_mlx
+{
+	void	*mlx;
+	void	*win;
+	int		height;
+	int		width;
+	int		gap;
+}	t_mlx;
+
 t_map	*get_map(char *filename);
+void	set_gap(t_map *map, t_mlx *mlx);
 
 int		get_dot_color(char *line, t_dot *dot, int *idx);
 int		map_atoi(char *line, t_dot *dot, int *idx);
