@@ -6,7 +6,7 @@
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 15:56:19 by jeelee            #+#    #+#             */
-/*   Updated: 2023/03/23 16:24:54 by jeelee           ###   ########.fr       */
+/*   Updated: 2023/03/23 18:05:37 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,7 @@ int	main(int ac, char **av)
 	print_xy(map);
 	print_info(map, &mlx, &img);
 	set_image(map, &img, &mlx);
-	mlx_put_image_to_window(mlx.mlx, mlx.win, img.img, \
-		WINDOW_MARGIN, WINDOW_MARGIN);
+	mlx_put_image_to_window(mlx.mlx, mlx.win, img.img, 0, 0);
 	mlx_loop(mlx.mlx);
 	free_map(map);
 	return (0);
