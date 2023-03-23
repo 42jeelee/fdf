@@ -6,7 +6,7 @@
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 15:56:19 by jeelee            #+#    #+#             */
-/*   Updated: 2023/03/23 16:09:47 by jeelee           ###   ########.fr       */
+/*   Updated: 2023/03/23 16:24:54 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,11 @@ int	main(int ac, char **av)
 	set_gap(map, &mlx);
 	mlx.mlx = mlx_init();
 	mlx.win = mlx_new_window(mlx.mlx, mlx.width, mlx.height, "fdf");
-	img.img = mlx_new_image(mlx.mlx, mlx.width - (2 * WINDOW_MARGIN) + 1, \
-		mlx.height - (2 * WINDOW_MARGIN) + 1);
-	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, \
-		&img.size_line, &img.endian);
+	mlx_key_hook(mlx.win, key_hook, &mlx);
 	set_coordinate(map, &mlx);
 	print_xy(map);
 	print_info(map, &mlx, &img);
-	mlx_key_hook(mlx.win, key_hook, &mlx);
-	draw_image(map, &img);
+	set_image(map, &img, &mlx);
 	mlx_put_image_to_window(mlx.mlx, mlx.win, img.img, \
 		WINDOW_MARGIN, WINDOW_MARGIN);
 	mlx_loop(mlx.mlx);
