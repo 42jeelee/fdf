@@ -6,7 +6,7 @@
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 00:57:20 by jeelee            #+#    #+#             */
-/*   Updated: 2023/03/23 01:06:35 by jeelee           ###   ########.fr       */
+/*   Updated: 2023/03/23 16:00:21 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	set_coordinate(t_map *map, t_mlx *mlx)
 	while (++i < map->width * map->height)
 	{
 		dot = &((map->map)[i]);
-		dot->x = (dot->x * mlx->gap) + WINDOW_MARGIN;
-		dot->y = (dot->y * mlx->gap) + WINDOW_MARGIN;
+		dot->x = (dot->x * mlx->gap);
+		dot->y = (dot->y * mlx->gap);
 	}
 }

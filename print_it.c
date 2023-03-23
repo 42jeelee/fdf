@@ -6,7 +6,7 @@
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 19:01:03 by jeelee            #+#    #+#             */
-/*   Updated: 2023/03/22 19:53:43 by jeelee           ###   ########.fr       */
+/*   Updated: 2023/03/23 16:06:21 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,4 +61,20 @@ void	print_xy(t_map *map)
 		else
 			printf("MAP->map is null\n");
 	}
+}
+
+void	print_dot(t_dot *dot)
+{
+	printf("D(%d, %d) ", dot->x, dot->y);
+}
+
+void	print_info(t_map *map, t_mlx *mlx, t_img *img)
+{
+	printf("======INFO=======\n");
+	printf("MAP HEIGHT: %d\nMAP WIDTH: %d\n", map->height, map->width);
+	printf("GAP: %d\nMLX HEIGHT: %d\nMLX WIDTH: %d\n", \
+		mlx->gap, mlx->height, mlx->width);
+	printf("IMG BIT..: %d\nIMG SIZELINE: %d\nIMG ENDIAN: %d\n", \
+		img->bits_per_pixel, img->size_line, img->endian);
+	printf("=================\n");
 }
