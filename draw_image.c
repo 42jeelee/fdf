@@ -6,7 +6,7 @@
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 00:52:09 by jeelee            #+#    #+#             */
-/*   Updated: 2023/03/23 16:31:23 by jeelee           ###   ########.fr       */
+/*   Updated: 2023/03/23 16:46:32 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	draw_image(t_map *map, t_img *img)
 {
 	t_dot	*d1;
 	t_dot	*d2;
-	// t_dot	*d3;
+	t_dot	*d3;
 	int		i;
 
 	d1 = &((map->map)[0]);
@@ -35,7 +35,13 @@ void	draw_image(t_map *map, t_img *img)
 	while (++i < map->height * map->width)
 	{
 		d2 = &((map->map)[i]);
-		bresenham(d1, d2, img);
+		if (i % map->width)
+			bresenham(d1, d2, img);
+		if (i + map->width - 1 < map->height * map->width)
+		{
+			d3 = &((map->map)[i + map->width - 1]);
+			bresenham(d1, d3, img);
+		}
 		d1 = d2;
 	}
 }
