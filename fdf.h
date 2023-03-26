@@ -6,7 +6,7 @@
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 15:56:32 by jeelee            #+#    #+#             */
-/*   Updated: 2023/03/27 00:22:04 by jeelee           ###   ########.fr       */
+/*   Updated: 2023/03/27 03:36:20 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,13 @@ typedef struct s_mlx
 	int		gap;
 }	t_mlx;
 
+typedef struct s_color
+{
+	int	r;
+	int	g;
+	int	b;
+}	t_color;
+
 t_map	*get_map(char *filename);
 void	set_gap(t_map *map, t_mlx *mlx);
 t_dot	set_coordinate(int gap, t_map *map);
@@ -67,6 +74,7 @@ void	set_image(t_map *map, t_img *img, t_mlx *mlx);
 void	draw_image(t_map *map, t_img *img);
 void	my_mlx_pixel_put(t_img *img, int x, int y, int color);
 void	bresenham(t_dot *d1, t_dot *d2, t_img *img);
+int		get_color(int pre_color, int next_color, int i, int size);
 
 void	rotate_x(t_dot *dot, double alpha);
 void	rotate_y(t_dot *dot, double beta);
@@ -83,6 +91,7 @@ int		map_widthjoin(t_map *map);
 int		key_hook(int keycode, t_mlx *mlx);
 
 void	print_map(t_map *map);
+void	print_color(t_map *map);
 void	print_xy(t_map *map);
 void	print_dot(t_dot *dot);
 void	print_info(t_map *map, t_mlx *mlx, t_img *img);
