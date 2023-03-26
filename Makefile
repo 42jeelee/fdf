@@ -6,7 +6,7 @@
 #    By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/22 23:01:36 by jeelee            #+#    #+#              #
-#    Updated: 2023/03/23 16:23:03 by jeelee           ###   ########.fr        #
+#    Updated: 2023/03/26 23:24:38 by jeelee           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CFLAGS	=	-Wall -Wextra -Werror
 MLX		=	libmlx.dylib
 MLX_DIR	=	./minilibx
 
-SRC		=	main.c get_map.c read_map.c utils.c hooks.c bresenham.c draw_image.c \
+SRC		=	main.c get_map.c read_map.c utils.c hooks.c bresenham.c draw_image.c rotate_coordinate.c \
 			set_gap.c set_coordinate.c set_image.c \
 			get_next_line.c get_next_line_utils.c print_it.c
 

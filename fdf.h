@@ -6,7 +6,7 @@
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 15:56:32 by jeelee            #+#    #+#             */
-/*   Updated: 2023/03/26 21:41:40 by jeelee           ###   ########.fr       */
+/*   Updated: 2023/03/26 23:24:15 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,10 @@ void	set_image(t_map *map, t_img *img, t_mlx *mlx);
 void	draw_image(t_map *map, t_img *img);
 void	my_mlx_pixel_put(t_img *img, int x, int y, int color);
 void	bresenham(t_dot *d1, t_dot *d2, t_img *img);
+
+void	rotate_x(t_dot *dot, double alpha);
+void	rotate_y(t_dot *dot, double beta);
+void	rotate_z(t_dot *dot, double gamma);
 
 int		get_dot_color(char *line, t_dot *dot, int *idx);
 int		map_atoi(char *line, t_dot *dot, int *idx);
