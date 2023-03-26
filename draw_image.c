@@ -6,7 +6,7 @@
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 00:52:09 by jeelee            #+#    #+#             */
-/*   Updated: 2023/03/23 16:46:32 by jeelee           ###   ########.fr       */
+/*   Updated: 2023/03/26 20:34:18 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	my_mlx_pixel_put(t_img *img, int x, int y, int color)
 {
 	char	*dst;
 
-	if (x < img->width && y < img->height)
+	if ((0 <= x && x < img->width) && (0 <= y && y < img->height))
 	{
 		dst = img->addr + (y * img->size_line + x * (img->bits_per_pixel / 8));
 		*(unsigned int *)dst = color;

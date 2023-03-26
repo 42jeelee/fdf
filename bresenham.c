@@ -6,13 +6,13 @@
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 14:58:49 by jeelee            #+#    #+#             */
-/*   Updated: 2023/03/23 16:39:21 by jeelee           ###   ########.fr       */
+/*   Updated: 2023/03/26 20:33:45 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	_bresenham_x(int e, t_dot curr, t_dot diff, t_img *img)
+void	_bresenham_x(t_dot curr, t_dot diff, t_dot vec, t_img *img)
 {
 	int	i;
 	int	p;
@@ -27,16 +27,19 @@ void	_bresenham_x(int e, t_dot curr, t_dot diff, t_img *img)
 		else
 		{
 			p += 2 * (diff.y - diff.x);
-			curr.y++;
+			if (vec.y > 0)
+				curr.y++;
+			else
+				curr.y--;
 		}
-		if (e > 0)
+		if (vec.x > 0)
 			curr.x++;
 		else
 			curr.x--;
 	}
 }
 
-void	_bresenham_y(int e, t_dot curr, t_dot diff, t_img *img)
+void	_bresenham_y(t_dot curr, t_dot diff, t_dot vec, t_img *img)
 {
 	int	i;
 	int	p;
@@ -51,9 +54,12 @@ void	_bresenham_y(int e, t_dot curr, t_dot diff, t_img *img)
 		else
 		{
 			p += 2 * (diff.x - diff.y);
-			curr.x++;
+			if (vec.x > 0)
+				curr.x++;
+			else
+				curr.x--;
 		}
-		if (e > 0)
+		if (vec.y > 0)
 			curr.y++;
 		else
 			curr.y--;
@@ -64,13 +70,16 @@ void	bresenham(t_dot *d1, t_dot *d2, t_img *img)
 {
 	t_dot	curr;
 	t_dot	diff;
+	t_dot	vec;
 
 	curr.x = d1->x;
 	curr.y = d1->y;
-	diff.x = abs(d2->x - d1->x);
-	diff.y = abs(d2->y - d1->y);
+	vec.x = d2->x - d1->x;
+	vec.y = d2->y - d1->y;
+	diff.x = abs(vec.x);
+	diff.y = abs(vec.y);
 	if (diff.x >= diff.y)
-		_bresenham_x(d2->x - d1->x, curr, diff, img);
+		_bresenham_x(curr, diff, vec, img);
 	else
-		_bresenham_y(d2->y - d1->y, curr, diff, img);
+		_bresenham_y(curr, diff, vec, img);
 }
