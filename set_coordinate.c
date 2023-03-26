@@ -6,7 +6,7 @@
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 00:57:20 by jeelee            #+#    #+#             */
-/*   Updated: 2023/03/27 00:56:14 by jeelee           ###   ########.fr       */
+/*   Updated: 2023/03/27 06:51:45 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,14 +89,16 @@ t_dot	set_coordinate(int gap, t_map *map)
 
 	base.x = map->height / 2;
 	base.y = map->width / 2;
+	base.z = map->high / 2;
 	i = -1;
 	while (++i < map->width * map->height)
 	{
 		dot = &((map->map)[i]);
 		dot->x = (dot->x * gap);
 		dot->y = (dot->y * gap);
-		rotate_coordinate(dot, -45, &base);
-		rotate_x(dot, 35.264);
+		dot->z = (dot->z * gap / 3);
+		rotate_z(dot, 45, &base);
+		rotate_x(dot, 35.264, &base);
 	}
 	return (adj_coordinate(map));
 }

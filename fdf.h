@@ -6,7 +6,7 @@
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 15:56:32 by jeelee            #+#    #+#             */
-/*   Updated: 2023/03/27 03:36:20 by jeelee           ###   ########.fr       */
+/*   Updated: 2023/03/27 06:24:18 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct s_map
 {
 	int				height;
 	int				width;
+	int				high;
 	struct s_dot	*map;
 	struct s_dot	*mapinit;
 }	t_map;
@@ -76,9 +77,9 @@ void	my_mlx_pixel_put(t_img *img, int x, int y, int color);
 void	bresenham(t_dot *d1, t_dot *d2, t_img *img);
 int		get_color(int pre_color, int next_color, int i, int size);
 
-void	rotate_x(t_dot *dot, double alpha);
-void	rotate_y(t_dot *dot, double beta);
-void	rotate_z(t_dot *dot, double gamma);
+void	rotate_x(t_dot *dot, double angle, t_dot *base);
+void	rotate_y(t_dot *dot, double angle, t_dot *base);
+void	rotate_z(t_dot *dot, double angle, t_dot *base);
 
 int		get_dot_color(char *line, t_dot *dot, int *idx);
 int		map_atoi(char *line, t_dot *dot, int *idx);

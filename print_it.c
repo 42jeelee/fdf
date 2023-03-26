@@ -6,7 +6,7 @@
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 19:01:03 by jeelee            #+#    #+#             */
-/*   Updated: 2023/03/27 03:21:41 by jeelee           ###   ########.fr       */
+/*   Updated: 2023/03/27 06:45:14 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	print_map(t_map *map)
 			i = -1;
 			while (++i < map->height * map->width)
 			{
-				printf("%d ", (map->map)[i].z);
+				printf("%d ", (map->mapinit)[i].z);
 				if (!((i + 1) % map->width))
 					printf("\n");
 			}
@@ -97,7 +97,7 @@ void	print_dot(t_dot *dot)
 void	print_info(t_map *map, t_mlx *mlx, t_img *img)
 {
 	printf("======INFO=======\n");
-	printf("MAP HEIGHT: %d\nMAP WIDTH: %d\n", map->height, map->width);
+	printf("MAP HEIGHT: %d\nMAP WIDTH: %d\nMAP HIGH: %d\n", map->height, map->width, map->high);
 	printf("GAP: %d\nMLX HEIGHT: %d\nMLX WIDTH: %d\n", \
 		mlx->gap, mlx->height, mlx->width);
 	printf("IMG BIT..: %d\nIMG SIZELINE: %d\nIMG ENDIAN: %d\n", \
