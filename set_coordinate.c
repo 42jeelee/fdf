@@ -6,7 +6,7 @@
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 00:57:20 by jeelee            #+#    #+#             */
-/*   Updated: 2023/03/26 23:29:12 by jeelee           ###   ########.fr       */
+/*   Updated: 2023/03/27 00:56:14 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,10 @@ void	rotate_coordinate(t_dot *dot, double angle, t_dot *base)
 	int	x;
 
 	x = dot->x;
-	dot->x = (x - base->x)*cos(angle * M_PI / 180) - (dot->y - base->y) * sin(angle * M_PI / 180) + base->x;
-	dot->y = (x - base->x)*sin(angle * M_PI / 180) + (dot->y - base->y) * cos(angle * M_PI / 180) + base->y;
+	dot->x = (x - base->x) * cos(angle * M_PI / 180) - (dot->y - base->y) * \
+		sin(angle * M_PI / 180) + base->x;
+	dot->y = (x - base->x) * sin(angle * M_PI / 180) + (dot->y - base->y) * \
+		cos(angle * M_PI / 180) + base->y;
 }
 
 t_dot	get_max(t_map *map)
@@ -41,6 +43,23 @@ t_dot	get_max(t_map *map)
 	return (max);
 }
 
+void	_adj_coordinate(t_map *map, t_dot *dot, t_dot *min)
+{
+	int	i;
+
+	i = -1;
+	while (++i < map->width * map->height)
+	{
+		dot = &(map->map)[i];
+		if (min->x < 0)
+			dot->x += abs(min->x);
+		if (min->y < 0)
+			dot->y += abs(min->y);
+		dot->x += WINDOW_MARGIN;
+		dot->y += WINDOW_MARGIN;
+	}
+}
+
 t_dot	adj_coordinate(t_map *map)
 {
 	t_dot	*dot;
@@ -58,17 +77,7 @@ t_dot	adj_coordinate(t_map *map)
 		if (dot->y < min.y)
 			min.y = dot->y;
 	}
-	i = -1;
-	while (++i < map->width * map->height)
-	{
-		dot = &(map->map)[i];
-		if (min.x < 0)
-			dot->x += abs(min.x);
-		if (min.y < 0)
-			dot->y += abs(min.y);
-		dot->x += WINDOW_MARGIN;
-		dot->y += WINDOW_MARGIN;
-	}
+	_adj_coordinate(map, dot, &min);
 	return (get_max(map));
 }
 
