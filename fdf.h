@@ -6,7 +6,7 @@
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 15:56:32 by jeelee            #+#    #+#             */
-/*   Updated: 2023/03/26 23:24:15 by jeelee           ###   ########.fr       */
+/*   Updated: 2023/03/27 00:22:04 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef struct s_map
 	int				height;
 	int				width;
 	struct s_dot	*map;
+	struct s_dot	*mapinit;
 }	t_map;
 
 typedef struct s_img
@@ -75,6 +76,7 @@ int		get_dot_color(char *line, t_dot *dot, int *idx);
 int		map_atoi(char *line, t_dot *dot, int *idx);
 
 int		free_map(t_map *map);
+void	map_init(t_map *map);
 int		is_in_string(char c, const char *str);
 int		map_widthjoin(t_map *map);
 

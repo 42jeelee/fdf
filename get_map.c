@@ -6,7 +6,7 @@
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 16:00:58 by jeelee            #+#    #+#             */
-/*   Updated: 2023/03/22 20:01:21 by jeelee           ###   ########.fr       */
+/*   Updated: 2023/03/27 00:46:13 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,12 @@ int	put_map_byline(char *line, t_map *map)
 		while (line[idx] == ' ')
 			idx++;
 		if (!('0' <= line[idx] && line[idx] <= '9') && \
-			(!(line[idx] == '-' && ('0' <= line[idx + 1] && line[idx + 1] <= '9'))))
+			(!(line[idx] == '-' && \
+				('0' <= line[idx + 1] && line[idx + 1] <= '9'))))
 			return (-1);
-		(map->map)[i].x = i - (map->width * (map->height - 1));
-		(map->map)[i].y = map->height - 1;
-		if (map_atoi(line, &(map->map)[i], &idx) == -1)
+		(map->mapinit)[i].x = i - (map->width * (map->height - 1));
+		(map->mapinit)[i].y = map->height - 1;
+		if (map_atoi(line, &(map->mapinit)[i], &idx) == -1)
 			return (-1);
 		i++;
 	}
@@ -102,10 +103,15 @@ t_map	*get_map(char *filename)
 		return (NULL);
 	map->height = 0;
 	map->width = 0;
+	map->mapinit = 0;
 	map->map = 0;
 	fd = open(filename, O_RDONLY);
 	if (read_map(fd, map) == -1)
 		return (fail_read_map(map, fd));
+	map->map = (t_dot *)malloc(sizeof(t_dot) * map->width * map->height);
+	if (!map->map)
+		return (fail_read_map(map, fd));
+	map_init(map);
 	close(fd);
 	return (map);
 }
