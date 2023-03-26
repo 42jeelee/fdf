@@ -6,7 +6,7 @@
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 15:56:19 by jeelee            #+#    #+#             */
-/*   Updated: 2023/03/23 18:05:37 by jeelee           ###   ########.fr       */
+/*   Updated: 2023/03/26 21:00:33 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ int	main(int ac, char **av)
 	mlx.mlx = mlx_init();
 	mlx.win = mlx_new_window(mlx.mlx, mlx.width, mlx.height, "fdf");
 	mlx_key_hook(mlx.win, key_hook, &mlx);
-	set_coordinate(map, &mlx);
 	print_xy(map);
 	print_info(map, &mlx, &img);
 	set_image(map, &img, &mlx);

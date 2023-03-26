@@ -6,7 +6,7 @@
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 15:56:32 by jeelee            #+#    #+#             */
-/*   Updated: 2023/03/23 16:24:37 by jeelee           ###   ########.fr       */
+/*   Updated: 2023/03/26 21:41:40 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,8 @@ typedef struct s_mlx
 
 t_map	*get_map(char *filename);
 void	set_gap(t_map *map, t_mlx *mlx);
-void	set_coordinate(t_map *map, t_mlx *mlx);
+t_dot	set_coordinate(int gap, t_map *map);
+t_dot	adj_coordinate(t_map *map);
 void	set_image(t_map *map, t_img *img, t_mlx *mlx);
 void	draw_image(t_map *map, t_img *img);
 void	my_mlx_pixel_put(t_img *img, int x, int y, int color);

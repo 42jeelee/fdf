@@ -6,7 +6,7 @@
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 19:01:03 by jeelee            #+#    #+#             */
-/*   Updated: 2023/03/23 16:06:21 by jeelee           ###   ########.fr       */
+/*   Updated: 2023/03/26 20:19:25 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,8 @@ void	print_xy(t_map *map)
 
 void	print_dot(t_dot *dot)
 {
-	printf("D(%d, %d) ", dot->x, dot->y);
+	printf("\n++PRINT DOT++\n");
+	printf("D(%d, %d)\n", dot->x, dot->y);
 }
 
 void	print_info(t_map *map, t_mlx *mlx, t_img *img)
