@@ -6,7 +6,7 @@
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 23:43:58 by jeelee            #+#    #+#             */
-/*   Updated: 2023/03/27 00:49:49 by jeelee           ###   ########.fr       */
+/*   Updated: 2023/03/27 08:46:28 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ void	set_gap(t_map *map, t_mlx *mlx)
 	t_dot	max;
 
 	mlx->gap = 42;
-	max = set_coordinate(mlx->gap, map);
+	max = set_coordinate(mlx->gap, map, mlx);
 	while (max.x + WINDOW_MARGIN > WINDOW_MAX_WIDTH || \
 		max.y + WINDOW_MARGIN > WINDOW_MAX_HEIGHT)
 	{
 		(mlx->gap)--;
 		map_init(map);
-		max = set_coordinate(mlx->gap, map);
+		max = set_coordinate(mlx->gap, map, mlx);
 	}
 	mlx->width = max.x + WINDOW_MARGIN;
 	mlx->height = max.y + WINDOW_MARGIN;
