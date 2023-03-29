@@ -6,7 +6,7 @@
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 15:56:32 by jeelee            #+#    #+#             */
-/*   Updated: 2023/03/30 00:46:54 by jeelee           ###   ########.fr       */
+/*   Updated: 2023/03/30 01:13:50 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ typedef struct s_cam
 	int		y;
 	int		z;
 	double	h;
+	double	big;
 	double	x_angle;
 	double	y_angle;
 	double	z_angle;
@@ -102,23 +103,28 @@ int		map_atoi(char *line, t_dot *dot, int *idx);
 void	rotate_x(t_dot *dot, double angle, t_dot *base);
 void	rotate_y(t_dot *dot, double angle, t_dot *base);
 void	rotate_z(t_dot *dot, double angle, t_dot *base);
+void	scale_dot(t_dot *dot, double big);
 void	set_size(t_mlx *mlx);
 
 void	set_coordinate(t_mlx *mlx);
 void	update_coordinate(t_mlx *mlx);
-void	my_mlx_pixel_put(t_mlx *mlx, t_dot dot, int color);
-void	bresenham(t_dot *d1, t_dot *d2, t_mlx *mlx);
-int		get_color(int pre_color, int next_color, int i, int size);
+
+t_dot	get_min(t_map *map);
+t_dot	get_max(t_map *map);
+void	set_image(t_mlx *mlx);
 void	draw_image(t_mlx *mlx);
+void	my_mlx_pixel_put(t_mlx *mlx, t_dot dot, int color);
+int		get_color(int pre_color, int next_color, int i, int size);
+void	bresenham(t_dot *d1, t_dot *d2, t_mlx *mlx);
+
+int		key_hook(int keycode, t_mlx *mlx);
+int		mouse_hook(int keycode, int x, int y, t_mlx *mlx);
+
 int		free_map(t_map *map);
 void	cam_init(t_cam *cam);
 void	map_init(t_map *map);
 int		is_in_string(char c, const char *str);
 int		map_widthjoin(t_map *map);
-
-void	set_image(t_mlx *mlx);
-
-int		key_hook(int keycode, t_mlx *mlx);
 
 void	print_map(t_map *map);
 void	print_xy(t_map *map);

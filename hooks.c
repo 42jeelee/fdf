@@ -6,7 +6,7 @@
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 15:42:54 by jeelee            #+#    #+#             */
-/*   Updated: 2023/03/30 00:47:25 by jeelee           ###   ########.fr       */
+/*   Updated: 2023/03/30 01:17:24 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,18 @@ int	key_hook(int keycode, t_mlx *mlx)
 		((mlx->cam).h) += 0.1;
 	else if (keycode == KEY_J)
 		((mlx->cam).h) -= 0.1;
+	set_image(mlx);
+	return (0);
+}
+
+int	mouse_hook(int keycode, int x, int y, t_mlx *mlx)
+{
+	(void)x;
+	(void)y;
+	if (keycode == MOUSE_SCROLL_UP)
+		((mlx->cam).big) += 0.1;
+	else if (keycode == MOUSE_SCROLL_DOWN)
+		((mlx->cam).big) -= 0.1;
 	set_image(mlx);
 	return (0);
 }

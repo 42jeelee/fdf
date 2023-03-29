@@ -6,7 +6,7 @@
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 19:17:37 by jeelee            #+#    #+#             */
-/*   Updated: 2023/03/29 19:17:39 by jeelee           ###   ########.fr       */
+/*   Updated: 2023/03/30 01:13:45 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,10 @@ void	rotate_z(t_dot *dot, double angle, t_dot *base)
 		sin(angle * M_PI / 180) + base->x;
 	dot->y = (x - base->x) * sin(angle * M_PI / 180) + (dot->y - base->y) * \
 		cos(angle * M_PI / 180) + base->y;
+}
+
+void	scale_dot(t_dot *dot, double big)
+{
+	dot->x *= big;
+	dot->y *= big;
 }

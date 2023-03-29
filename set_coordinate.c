@@ -6,58 +6,18 @@
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 16:08:48 by jeelee            #+#    #+#             */
-/*   Updated: 2023/03/30 00:45:05 by jeelee           ###   ########.fr       */
+/*   Updated: 2023/03/30 01:13:54 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-t_dot	get_min(t_map *map)
+void	all_setting_coordinate(t_dot *dot, t_cam *cam, t_dot *base)
 {
-	t_dot	min;
-	t_dot	dot;
-	int		i;
-
-	min.x = 2147483647;
-	min.y = 2147483647;
-	min.z = 0;
-	i = -1;
-	while (++i < map->width * map->height)
-	{
-		dot = (map->map)[i];
-		if (dot.x < min.x)
-			min.x = dot.x;
-		if (dot.y < min.y)
-			min.y = dot.y;
-	}
-	return (min);
-}
-
-t_dot	get_max(t_map *map)
-{
-	t_dot	dot;
-	t_dot	min;
-	t_dot	max;
-	int		i;
-
-	max.x = 0;
-	max.y = 0;
-	max.z = 0;
-	min = get_min(map);
-	i = -1;
-	while (++i < map->width * map->height)
-	{
-		dot = (map->map)[i];
-		if (min.x < 0)
-			dot.x += abs(min.x);
-		if (min.y < 0)
-			dot.y += abs(min.y);
-		if (dot.x > max.x)
-			max.x = dot.x;
-		if (dot.y > max.y)
-			max.y = dot.y;
-	}
-	return (max);
+	rotate_z(dot, cam->z_angle, base);
+	rotate_y(dot, cam->y_angle, base);
+	rotate_x(dot, cam->x_angle, base);
+	scale_dot(dot, cam->big);
 }
 
 void	adj_coordinate(t_mlx *mlx)
@@ -96,9 +56,7 @@ void	set_coordinate(t_mlx *mlx)
 		dot->x *= mlx->gap;
 		dot->y *= mlx->gap;
 		dot->z *= (mlx->cam).h;
-		rotate_z(dot, (mlx->cam).z_angle, &base);
-		rotate_y(dot, (mlx->cam).y_angle, &base);
-		rotate_x(dot, (mlx->cam).x_angle, &base);
+		all_setting_coordinate(dot, &(mlx->cam), &base);
 	}
 	max = get_max(mlx->map);
 	mlx->width = max.x + (WINDOW_MARGIN * 2);
@@ -124,9 +82,7 @@ void	update_coordinate(t_mlx *mlx)
 		dot->x *= mlx->gap;
 		dot->y *= mlx->gap;
 		dot->z *= (mlx->cam).h;
-		rotate_z(dot, (mlx->cam).z_angle, &base);
-		rotate_y(dot, (mlx->cam).y_angle, &base);
-		rotate_x(dot, (mlx->cam).x_angle, &base);
+		all_setting_coordinate(dot, &(mlx->cam), &base);
 	}
 	adj_coordinate(mlx);
 }
