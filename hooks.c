@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   hooks.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/22 15:56:19 by jeelee            #+#    #+#             */
-/*   Updated: 2023/03/29 18:01:43 by jeelee           ###   ########.fr       */
+/*   Created: 2023/03/29 15:42:54 by jeelee            #+#    #+#             */
+/*   Updated: 2023/03/29 15:57:50 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int	main(int ac, char **av)
+int	key_hook(int keycode, t_mlx *mlx)
 {
-	t_mlx	mlx;
-
-	if (ac != 2)
-		return (-1);
-	mlx.map = get_map(av[1]);
-	set_size(&mlx);
-	print_map(mlx.map);
-	print_info(&mlx);
-	mlx.mlx = mlx_init();
-	mlx.win = mlx_new_window(mlx.mlx, mlx.width, mlx.height, "fdf");
-	mlx_key_hook(mlx.win, key_hook, &mlx);
-	mlx_loop(mlx.mlx);
-	free_map(mlx.map);
+	if (keycode == ESC_KEY)
+	{
+		mlx_destroy_window(mlx->mlx, mlx->win);
+		exit(0);
+	}
 	return (0);
 }
