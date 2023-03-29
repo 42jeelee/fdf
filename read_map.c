@@ -6,7 +6,7 @@
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 16:45:06 by jeelee            #+#    #+#             */
-/*   Updated: 2023/03/22 20:03:49 by jeelee           ###   ########.fr       */
+/*   Updated: 2023/03/29 15:28:56 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int	get_dot_color(char *line, t_dot *dot, int *idx)
 		return (-1);
 	if (line[(*idx)++] != 'x')
 		return (-1);
+	dot->color = 0;
 	while (1)
 	{
 		i = is_in_string(line[*idx], hex);
@@ -38,7 +39,7 @@ int	map_atoi(char *line, t_dot *dot, int *idx)
 	int	m;
 
 	dot->z = 0;
-	dot->color = 0;
+	dot->color = 0xFFFFFF;
 	m = 1;
 	if (line[*idx] == '-')
 	{

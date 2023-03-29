@@ -6,7 +6,7 @@
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 15:56:19 by jeelee            #+#    #+#             */
-/*   Updated: 2023/03/22 19:07:25 by jeelee           ###   ########.fr       */
+/*   Updated: 2023/03/29 15:36:15 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	main(int ac, char **av)
 	if (ac != 2)
 		return (-1);
 	map = get_map(av[1]);
-	print_map(map);
+	print_color(map);
 	free_map(map);
 	return (0);
 }
