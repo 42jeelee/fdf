@@ -6,7 +6,7 @@
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 15:56:32 by jeelee            #+#    #+#             */
-/*   Updated: 2023/03/29 19:11:28 by jeelee           ###   ########.fr       */
+/*   Updated: 2023/03/29 19:33:21 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <unistd.h>
 # include <fcntl.h>
+# include <math.h>
 # include "get_next_line.h"
 # include "minilibx/mlx.h"
 
@@ -95,8 +96,11 @@ t_map	*get_map(char *filename);
 int		get_dot_color(char *line, t_dot *dot, int *idx);
 int		map_atoi(char *line, t_dot *dot, int *idx);
 
+void	rotate_x(t_dot *dot, double angle, t_dot *base);
+void	rotate_y(t_dot *dot, double angle, t_dot *base);
+void	rotate_z(t_dot *dot, double angle, t_dot *base);
 void	set_size(t_mlx *mlx);
-t_dot	set_coordinate(int gap, t_map *map);
+t_dot	set_coordinate(int gap, t_map *map, t_dot *base);
 
 void	my_mlx_pixel_put(t_mlx *mlx, t_dot dot, int color);
 void	bresenham(t_dot *d1, t_dot *d2, t_mlx *mlx);
