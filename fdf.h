@@ -6,7 +6,7 @@
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 15:56:32 by jeelee            #+#    #+#             */
-/*   Updated: 2023/03/29 17:59:49 by jeelee           ###   ########.fr       */
+/*   Updated: 2023/03/29 18:14:13 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,6 @@ int		get_dot_color(char *line, t_dot *dot, int *idx);
 int		map_atoi(char *line, t_dot *dot, int *idx);
 
 void	set_size(t_mlx *mlx);
-t_dot	adj_coordinate(t_map *map);
 t_dot	set_coordinate(int gap, t_map *map);
 
 int		free_map(t_map *map);
