@@ -6,7 +6,7 @@
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 16:00:58 by jeelee            #+#    #+#             */
-/*   Updated: 2023/03/30 03:54:49 by jeelee           ###   ########.fr       */
+/*   Updated: 2023/03/30 04:22:57 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,8 @@ int	put_map_byline(char *line, t_map *map)
 			map->high = (map->mapinit)[i].z;
 		i++;
 	}
+	if (line[idx] && line[idx] != '\n')
+		return (-1);
 	return (0);
 }
 
