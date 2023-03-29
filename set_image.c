@@ -6,7 +6,7 @@
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 18:44:06 by jeelee            #+#    #+#             */
-/*   Updated: 2023/03/29 19:14:56 by jeelee           ###   ########.fr       */
+/*   Updated: 2023/03/29 22:51:51 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	destroy_image(t_mlx *mlx)
 	{
 		mlx_destroy_image(mlx->mlx, (mlx->img).img);
 		map_init(mlx->map);
+		update_coordinate(mlx);
 		(mlx->img).addr = 0;
 	}
 }

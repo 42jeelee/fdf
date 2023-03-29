@@ -6,7 +6,7 @@
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 15:56:32 by jeelee            #+#    #+#             */
-/*   Updated: 2023/03/29 20:27:06 by jeelee           ###   ########.fr       */
+/*   Updated: 2023/03/29 23:45:14 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ typedef struct s_map
 	int				height;
 	int				width;
 	int				high;
+	struct s_dot	*mid;
 	struct s_dot	*map;
 	struct s_dot	*mapinit;
 }	t_map;
@@ -85,7 +86,6 @@ typedef struct s_mlx
 	int				height;
 	int				width;
 	int				gap;
-	struct s_dot	base;
 	struct s_img	img;
 	struct s_map	*map;
 	struct s_cam	cam;
@@ -100,13 +100,15 @@ void	rotate_x(t_dot *dot, double angle, t_dot *base);
 void	rotate_y(t_dot *dot, double angle, t_dot *base);
 void	rotate_z(t_dot *dot, double angle, t_dot *base);
 void	set_size(t_mlx *mlx);
-t_dot	set_coordinate(int gap, t_map *map, t_dot *base);
 
+void	set_coordinate(t_mlx *mlx);
+void	update_coordinate(t_mlx *mlx);
 void	my_mlx_pixel_put(t_mlx *mlx, t_dot dot, int color);
 void	bresenham(t_dot *d1, t_dot *d2, t_mlx *mlx);
 int		get_color(int pre_color, int next_color, int i, int size);
 void	draw_image(t_mlx *mlx);
 int		free_map(t_map *map);
+void	cam_init(t_cam *cam);
 void	map_init(t_map *map);
 int		is_in_string(char c, const char *str);
 int		map_widthjoin(t_map *map);

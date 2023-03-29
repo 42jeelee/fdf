@@ -6,7 +6,7 @@
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 16:45:37 by jeelee            #+#    #+#             */
-/*   Updated: 2023/03/29 15:27:51 by jeelee           ###   ########.fr       */
+/*   Updated: 2023/03/29 22:34:05 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,16 @@ int	free_map(t_map *map)
 		map = 0;
 	}
 	return (0);
+}
+
+void	cam_init(t_cam *cam)
+{
+	cam->x = 0;
+	cam->y = 0;
+	cam->z = 0;
+	cam->x_angle = 35.264;
+	cam->y_angle = 0;
+	cam->z_angle = 45;
 }
 
 void	map_init(t_map *map)

@@ -6,7 +6,7 @@
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 16:00:58 by jeelee            #+#    #+#             */
-/*   Updated: 2023/03/29 16:34:48 by jeelee           ###   ########.fr       */
+/*   Updated: 2023/03/29 23:35:44 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,7 @@ t_map	*get_map(char *filename)
 	map->height = 0;
 	map->width = 0;
 	map->high = 0;
+	map->mid = 0;
 	map->mapinit = 0;
 	fd = open(filename, O_RDONLY);
 	if (read_map(fd, map) == -1)
