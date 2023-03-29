@@ -6,7 +6,7 @@
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 15:56:32 by jeelee            #+#    #+#             */
-/*   Updated: 2023/03/29 23:45:14 by jeelee           ###   ########.fr       */
+/*   Updated: 2023/03/30 00:46:54 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@
 # define KEY_A 0
 # define KEY_S 1
 # define KEY_D 2
+# define KEY_H 4
+# define KEY_J 38
 # define ESC_KEY 53
 
 typedef struct s_color
@@ -74,6 +76,7 @@ typedef struct s_cam
 	int		x;
 	int		y;
 	int		z;
+	double	h;
 	double	x_angle;
 	double	y_angle;
 	double	z_angle;

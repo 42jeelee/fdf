@@ -6,7 +6,7 @@
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 16:08:48 by jeelee            #+#    #+#             */
-/*   Updated: 2023/03/30 00:22:14 by jeelee           ###   ########.fr       */
+/*   Updated: 2023/03/30 00:45:05 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ void	set_coordinate(t_mlx *mlx)
 			(mlx->map)->mid = dot;
 		dot->x *= mlx->gap;
 		dot->y *= mlx->gap;
-		dot->z *= mlx->gap / 3;
+		dot->z *= (mlx->cam).h;
 		rotate_z(dot, (mlx->cam).z_angle, &base);
 		rotate_y(dot, (mlx->cam).y_angle, &base);
 		rotate_x(dot, (mlx->cam).x_angle, &base);
@@ -123,7 +123,7 @@ void	update_coordinate(t_mlx *mlx)
 			(mlx->map)->mid = dot;
 		dot->x *= mlx->gap;
 		dot->y *= mlx->gap;
-		dot->z *= mlx->gap / 3;
+		dot->z *= (mlx->cam).h;
 		rotate_z(dot, (mlx->cam).z_angle, &base);
 		rotate_y(dot, (mlx->cam).y_angle, &base);
 		rotate_x(dot, (mlx->cam).x_angle, &base);
