@@ -6,7 +6,7 @@
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 15:56:32 by jeelee            #+#    #+#             */
-/*   Updated: 2023/03/30 03:08:39 by jeelee           ###   ########.fr       */
+/*   Updated: 2023/03/30 03:36:07 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,10 @@
 # define MOUSE_SCROLL_UP 4
 # define MOUSE_SCROLL_DOWN 5
 
+# define KEY_LEFT 123
+# define KEY_RIGHT 124
+# define KEY_UP 126
+# define KEY_DOWN 125
 # define KEY_W 13
 # define KEY_A 0
 # define KEY_S 1
@@ -75,7 +79,6 @@ typedef struct s_cam
 {
 	int		x;
 	int		y;
-	int		z;
 	double	h;
 	double	big;
 	double	x_angle;

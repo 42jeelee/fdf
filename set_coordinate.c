@@ -6,7 +6,7 @@
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 16:08:48 by jeelee            #+#    #+#             */
-/*   Updated: 2023/03/30 01:13:54 by jeelee           ###   ########.fr       */
+/*   Updated: 2023/03/30 03:37:54 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,20 @@ void	all_setting_coordinate(t_dot *dot, t_cam *cam, t_dot *base)
 	rotate_y(dot, cam->y_angle, base);
 	rotate_x(dot, cam->x_angle, base);
 	scale_dot(dot, cam->big);
+}
+
+void	trans_dot(t_map *map, t_cam *cam)
+{
+	t_dot	*dot;
+	int		i;
+
+	i = -1;
+	while (++i < map->width * map->height)
+	{
+		dot = &(map->map)[i];
+		dot->x += cam->x;
+		dot->y += cam->y;
+	}
 }
 
 void	adj_coordinate(t_mlx *mlx)
@@ -85,4 +99,5 @@ void	update_coordinate(t_mlx *mlx)
 		all_setting_coordinate(dot, &(mlx->cam), &base);
 	}
 	adj_coordinate(mlx);
+	trans_dot(mlx->map, &(mlx->cam));
 }

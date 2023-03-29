@@ -6,7 +6,7 @@
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 16:45:37 by jeelee            #+#    #+#             */
-/*   Updated: 2023/03/30 03:01:40 by jeelee           ###   ########.fr       */
+/*   Updated: 2023/03/30 03:18:01 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ void	cam_init(t_cam *cam)
 {
 	cam->x = 0;
 	cam->y = 0;
-	cam->z = 0;
 	cam->h = 10;
 	cam->big = 1;
 	cam->x_angle = 35.264;

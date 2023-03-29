@@ -6,11 +6,25 @@
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 15:42:54 by jeelee            #+#    #+#             */
-/*   Updated: 2023/03/30 03:00:57 by jeelee           ###   ########.fr       */
+/*   Updated: 2023/03/30 03:39:59 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+
+int	_key_hook(int keycode, t_mlx *mlx)
+{
+	if (keycode == KEY_UP)
+		((mlx->cam).y) -= 10;
+	else if (keycode == KEY_DOWN)
+		((mlx->cam).y) += 10;
+	else if (keycode == KEY_LEFT)
+		((mlx->cam).x) -= 10;
+	else if (keycode == KEY_RIGHT)
+		((mlx->cam).x) += 10;
+	set_image(mlx);
+	return (0);
+}
 
 int	key_hook(int keycode, t_mlx *mlx)
 {
@@ -20,19 +34,18 @@ int	key_hook(int keycode, t_mlx *mlx)
 		exit(0);
 	}
 	else if (keycode == KEY_A)
-		((mlx->cam).z_angle)++;
+		((mlx->cam).z_angle) += 5;
 	else if (keycode == KEY_D)
-		((mlx->cam).z_angle)--;
+		((mlx->cam).z_angle) -= 5;
 	else if (keycode == KEY_W)
-		((mlx->cam).x_angle)++;
+		((mlx->cam).x_angle) += 5;
 	else if (keycode == KEY_S)
-		((mlx->cam).x_angle)--;
+		((mlx->cam).x_angle) -= 5;
 	else if (keycode == KEY_H)
 		((mlx->cam).h) += 0.5;
 	else if (keycode == KEY_J)
 		((mlx->cam).h) -= 0.5;
-	set_image(mlx);
-	return (0);
+	return (_key_hook(keycode, mlx));
 }
 
 int	mouse_hook(int keycode, int x, int y, t_mlx *mlx)
