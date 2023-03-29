@@ -6,7 +6,7 @@
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 15:56:32 by jeelee            #+#    #+#             */
-/*   Updated: 2023/03/29 19:33:21 by jeelee           ###   ########.fr       */
+/*   Updated: 2023/03/29 20:27:06 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include "get_next_line.h"
 # include "minilibx/mlx.h"
 
-# define WINDOW_MAX_HEIGHT 1500
+# define WINDOW_MAX_HEIGHT 1800
 # define WINDOW_MAX_WIDTH 2000
 # define WINDOW_MARGIN 200
 
@@ -119,5 +119,6 @@ void	print_map(t_map *map);
 void	print_xy(t_map *map);
 void	print_color(t_map *map);
 void	print_info(t_mlx *mlx);
+void	print_dot(t_dot *dot);
 
 #endif

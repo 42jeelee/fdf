@@ -6,7 +6,7 @@
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 16:08:48 by jeelee            #+#    #+#             */
-/*   Updated: 2023/03/29 20:08:00 by jeelee           ###   ########.fr       */
+/*   Updated: 2023/03/29 20:29:43 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ t_dot	get_max(t_map *map)
 
 	max.x = 0;
 	max.y = 0;
+	max.z = 0;
 	i = -1;
 	while (++i < map->width * map->height)
 	{

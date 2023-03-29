@@ -6,7 +6,7 @@
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 15:56:19 by jeelee            #+#    #+#             */
-/*   Updated: 2023/03/29 20:03:23 by jeelee           ###   ########.fr       */
+/*   Updated: 2023/03/29 20:31:10 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(int ac, char **av)
 	mlx.map = get_map(av[1]);
 	if (!mlx.map)
 		return (-1);
-	print_xy(mlx.map);
+	print_color(mlx.map);
 	set_size(&mlx);
 	print_info(&mlx);
 	mlx.mlx = mlx_init();

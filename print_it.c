@@ -6,7 +6,7 @@
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 19:01:03 by jeelee            #+#    #+#             */
-/*   Updated: 2023/03/29 18:02:12 by jeelee           ###   ########.fr       */
+/*   Updated: 2023/03/29 20:23:28 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,4 +98,12 @@ void	print_info(t_mlx *mlx)
 	printf("IMG BIT..: %d\nIMG SIZELINE: %d\nIMG ENDIAN: %d\n", \
 		(mlx->img).bits_per_pixel, (mlx->img).size_line, (mlx->img).endian);
 	printf("=================\n");
+}
+
+void	print_dot(t_dot *dot)
+{
+	if (dot)
+		printf("(%d, %d, %d)\n", dot->x, dot->y, dot->z);
+	else
+		printf("(NULL)");
 }
