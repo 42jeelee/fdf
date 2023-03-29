@@ -6,7 +6,7 @@
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 18:40:12 by jeelee            #+#    #+#             */
-/*   Updated: 2023/03/29 19:04:26 by jeelee           ###   ########.fr       */
+/*   Updated: 2023/03/30 02:22:35 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	_bresenham_x(t_dot curr, t_dot diff, t_dot vec, t_mlx *mlx)
 	while (++i < diff.x)
 	{
 		my_mlx_pixel_put(mlx, curr, \
-			get_color(vec.color, diff.color, i, diff.x));
+			get_color___(vec.color, diff.color, i, diff.x));
 		if (p < 0)
 			p += 2 * diff.y;
 		else
@@ -50,7 +50,7 @@ void	_bresenham_y(t_dot curr, t_dot diff, t_dot vec, t_mlx *mlx)
 	while (++i < diff.y)
 	{
 		my_mlx_pixel_put(mlx, curr, \
-			get_color(vec.color, diff.color, i, diff.y));
+			get_color___(vec.color, diff.color, i, diff.y));
 		if (p < 0)
 			p += 2 * diff.x;
 		else

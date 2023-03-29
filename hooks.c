@@ -6,7 +6,7 @@
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 15:42:54 by jeelee            #+#    #+#             */
-/*   Updated: 2023/03/30 02:32:42 by jeelee           ###   ########.fr       */
+/*   Updated: 2023/03/30 03:00:57 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ int	key_hook(int keycode, t_mlx *mlx)
 	else if (keycode == KEY_S)
 		((mlx->cam).x_angle)--;
 	else if (keycode == KEY_H)
-		((mlx->cam).h) += 0.1;
+		((mlx->cam).h) += 0.5;
 	else if (keycode == KEY_J)
-		((mlx->cam).h) -= 0.1;
+		((mlx->cam).h) -= 0.5;
 	set_image(mlx);
 	return (0);
 }
