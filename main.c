@@ -5,64 +5,31 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/14 16:43:49 by jeelee            #+#    #+#             */
-/*   Updated: 2023/03/20 19:12:08 by jeelee           ###   ########.fr       */
+/*   Created: 2023/03/22 15:56:19 by jeelee            #+#    #+#             */
+/*   Updated: 2023/03/30 04:10:41 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minilibx/mlx.h"
-#include <stdlib.h>
+#include "fdf.h"
 
-typedef struct s_vars {
-	void	*mlx;
-	void	*win;
-}	t_vars;
-
-int	key_hook(int keycode, t_vars *vars)
+int	main(int ac, char **av)
 {
-	if (keycode == 53)
-	{
-		mlx_destroy_window(vars->mlx, vars->win);
-		exit(0);
-	}
-	return (0);
-}
+	t_mlx	mlx;
 
-void	bresenhams(int x1, int y1, int x2, int y2, t_vars *vars)
-{
-	int	x;
-	int	y;
-	int	dx;
-	int	dy;
-	int	p;
-
-	x = x1;
-	y = y1;
-	dx = x2 - x1;
-	dy = y2 - y1;
-	p = (2 * dy) - dx;
-	while (x <= x2)
-	{
-		mlx_pixel_put(vars->mlx, vars->win, x, y, 0xFFFFFF);
-		x++;
-		if (p < 0)
-			p = p + (2 * dy);
-		else
-		{
-			p = p + (2 * dy) - (2 * dx);
-			y++;
-		}
-	}
-}
-
-int	main(void)
-{
-	t_vars	vars;
-
-	vars.mlx = mlx_init();
-	vars.win = mlx_new_window(vars.mlx, 500, 500, "Title");
-	mlx_key_hook (vars.win, key_hook, &vars);
-	bresenhams(100, 100, 400, 400, &vars);
-	mlx_loop(vars.mlx);
+	if (ac != 2)
+		return (-1);
+	mlx.map = get_map(av[1]);
+	if (!mlx.map)
+		return (-1);
+	cam_init(&mlx.cam);
+	set_size(&mlx);
+	mlx.mlx = mlx_init();
+	mlx.win = mlx_new_window(mlx.mlx, mlx.width, mlx.height, "fdf");
+	mlx_key_hook(mlx.win, key_hook, &mlx);
+	mlx_mouse_hook(mlx.win, mouse_hook, &mlx);
+	(mlx.img).addr = 0;
+	set_image(&mlx);
+	mlx_loop(mlx.mlx);
+	free_map(mlx.map);
 	return (0);
 }
