@@ -6,7 +6,7 @@
 #    By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/29 15:41:26 by jeelee            #+#    #+#              #
-#    Updated: 2023/03/29 17:57:53 by jeelee           ###   ########.fr        #
+#    Updated: 2023/03/29 19:15:35 by jeelee           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ MLX_DIR	=	./minilibx
 
 SRC		=	main.c get_map.c read_map.c utils.c hooks.c \
 			set_size.c set_coordinate.c \
+			set_image.c draw_image.c bresenham.c get_color.c \
 			get_next_line.c get_next_line_utils.c print_it.c
 
 OBJ		=	$(SRC:.c=.o)

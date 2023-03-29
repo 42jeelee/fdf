@@ -6,7 +6,7 @@
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 15:56:32 by jeelee            #+#    #+#             */
-/*   Updated: 2023/03/29 18:14:13 by jeelee           ###   ########.fr       */
+/*   Updated: 2023/03/29 19:11:28 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,13 @@
 # define KEY_S 1
 # define KEY_D 2
 # define ESC_KEY 53
+
+typedef struct s_color
+{
+	int	r;
+	int	g;
+	int	b;
+}	t_color;
 
 typedef struct s_dot
 {
@@ -91,10 +98,16 @@ int		map_atoi(char *line, t_dot *dot, int *idx);
 void	set_size(t_mlx *mlx);
 t_dot	set_coordinate(int gap, t_map *map);
 
+void	my_mlx_pixel_put(t_mlx *mlx, t_dot dot, int color);
+void	bresenham(t_dot *d1, t_dot *d2, t_mlx *mlx);
+int		get_color(int pre_color, int next_color, int i, int size);
+void	draw_image(t_mlx *mlx);
 int		free_map(t_map *map);
 void	map_init(t_map *map);
 int		is_in_string(char c, const char *str);
 int		map_widthjoin(t_map *map);
+
+void	set_image(t_mlx *mlx);
 
 int		key_hook(int keycode, t_mlx *mlx);
 
