@@ -6,7 +6,7 @@
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 15:56:19 by jeelee            #+#    #+#             */
-/*   Updated: 2023/04/04 17:45:09 by jeelee           ###   ########.fr       */
+/*   Updated: 2023/04/04 18:39:01 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ int	main(int ac, char **av)
 	t_mlx	mlx;
 
 	if (ac != 2)
-		return (-1);
+		return (error_massage(ANSI_YEL "Usage :" ANSI_GRE " ./fdf" \
+			ANSI_BLU " [filename]\n" ANSI_RES, -1));
 	mlx.map = get_map(av[1]);
 	if (!mlx.map)
 		return (-1);

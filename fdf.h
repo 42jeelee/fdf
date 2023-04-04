@@ -6,7 +6,7 @@
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 15:56:32 by jeelee            #+#    #+#             */
-/*   Updated: 2023/04/04 17:49:41 by jeelee           ###   ########.fr       */
+/*   Updated: 2023/04/04 18:19:43 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,17 @@
 # include <math.h>
 # include "get_next_line.h"
 # include "minilibx/mlx.h"
+
+# define ANSI_RES "\e[0;0m"
+# define ANSI_BOL "\e[0;1m"
+# define ANSI_ITA "\e[0;3m"
+# define ANSI_BLC "\e[0;30m"
+# define ANSI_RED "\e[0;31m"
+# define ANSI_GRE "\e[0;32m"
+# define ANSI_YEL "\e[0;33m"
+# define ANSI_BLU "\e[0;34m"
+# define ANSI_MAG "\e[0;35m"
+# define ANSI_CYA "\e[0;36m"
 
 # define WINDOW_MAX_HEIGHT 1800
 # define WINDOW_MAX_WIDTH 2000
@@ -129,7 +140,9 @@ int		mouse_hook(int keycode, int x, int y, t_mlx *mlx);
 int		free_map(t_map *map);
 void	cam_init(t_cam *cam);
 void	map_init(t_map *map);
+void	map_all_init(t_map *map);
 int		is_in_string(char c, const char *str);
 int		map_widthjoin(t_map *map);
+int		error_massage(char *message, int ret);
 
 #endif

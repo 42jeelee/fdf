@@ -6,7 +6,7 @@
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 16:00:58 by jeelee            #+#    #+#             */
-/*   Updated: 2023/03/30 04:22:57 by jeelee           ###   ########.fr       */
+/*   Updated: 2023/04/04 18:29:15 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	get_map_width(char *line)
 	{
 		while (line[i] == ' ')
 			i++;
-		if (line[i] == '\n')
+		if (!line[i] || line[i] == '\n')
 			break ;
 		if (!('0' <= line[i] && line[i] <= '9') && \
 			(!(line[i] == '-' && ('0' <= line[i + 1] && line[i + 1] <= '9'))))
@@ -57,17 +57,17 @@ int	put_map_byline(char *line, t_map *map)
 		if (!('0' <= line[idx] && line[idx] <= '9') && \
 			(!(line[idx] == '-' && \
 				('0' <= line[idx + 1] && line[idx + 1] <= '9'))))
-			return (-1);
+			return (error_massage(ANSI_RED "INVALID MAP\n" ANSI_RES, -1));
 		(map->mapinit)[i].x = i - (map->width * (map->height - 1));
 		(map->mapinit)[i].y = map->height - 1;
 		if (map_atoi(line, &(map->mapinit)[i], &idx) == -1)
-			return (-1);
+			return (error_massage(ANSI_RED "INVALID MAP\n" ANSI_RES, -1));
 		if ((map->mapinit)[i].z > map->high)
 			map->high = (map->mapinit)[i].z;
 		i++;
 	}
-	if (line[idx] && line[idx] != '\n')
-		return (-1);
+	if (line[idx] && !(line[idx] == '\n' || line[idx] == ' '))
+		return (error_massage(ANSI_RED "INVALID MAP\n" ANSI_RES, -1));
 	return (0);
 }
 
@@ -77,7 +77,7 @@ int	read_map(int fd, t_map *map)
 
 	line = get_next_line(fd);
 	if (!line)
-		return (-1);
+		return (error_massage(ANSI_RED "NO DATA\n" ANSI_RES, -1));
 	map->height = 1;
 	map->width = get_map_width(line);
 	if (map_widthjoin(map) == -1)
@@ -107,14 +107,14 @@ t_map	*get_map(char *filename)
 	map = (t_map *)malloc(sizeof(t_map));
 	if (!map)
 		return (NULL);
-	map->height = 0;
-	map->width = 0;
-	map->high = 0;
-	map->mid = 0;
-	map->mapinit = 0;
-	map->map = 0;
+	map_all_init(map);
 	fd = open(filename, O_RDONLY);
-	if (fd == -1 || read_map(fd, map) == -1)
+	if (fd == -1)
+	{
+		error_massage(ANSI_RED "NOT FOUND" ANSI_YEL " [FILE]!\n" ANSI_RES, -1);
+		return (NULL);
+	}
+	if (read_map(fd, map) == -1)
 		return (fail_read_map(map, fd));
 	map->map = (t_dot *)malloc(sizeof(t_dot) * (map->width * map->height));
 	if (!map->mapinit)
