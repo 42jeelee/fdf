@@ -6,7 +6,7 @@
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 15:56:32 by jeelee            #+#    #+#             */
-/*   Updated: 2023/04/04 18:19:43 by jeelee           ###   ########.fr       */
+/*   Updated: 2023/04/04 21:31:18 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@
 # define KEY_S 1
 # define KEY_D 2
 # define KEY_H 4
+# define KEY_C 8
 # define KEY_J 38
 # define ESC_KEY 53
 
@@ -74,6 +75,7 @@ typedef struct s_map
 	int				height;
 	int				width;
 	int				high;
+	int				low;
 	struct s_dot	*mid;
 	struct s_dot	*map;
 	struct s_dot	*mapinit;
@@ -92,6 +94,7 @@ typedef struct s_cam
 {
 	int		x;
 	int		y;
+	int		color;
 	double	h;
 	double	big;
 	double	x_angle;
@@ -115,7 +118,9 @@ t_map	*get_map(char *filename);
 
 int		get_dot_color(char *line, t_dot *dot, int *idx);
 int		map_atoi(char *line, t_dot *dot, int *idx);
+void	set_high_low(t_dot dot, t_map *map);
 
+void	setting_dot_color(t_dot *dot, int color, t_map *map);
 void	rotate_x(t_dot *dot, double angle, t_dot *base);
 void	rotate_y(t_dot *dot, double angle, t_dot *base);
 void	rotate_z(t_dot *dot, double angle, t_dot *base);

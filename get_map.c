@@ -6,7 +6,7 @@
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 16:00:58 by jeelee            #+#    #+#             */
-/*   Updated: 2023/04/04 18:29:15 by jeelee           ###   ########.fr       */
+/*   Updated: 2023/04/04 19:53:29 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,7 @@ int	put_map_byline(char *line, t_map *map)
 		(map->mapinit)[i].y = map->height - 1;
 		if (map_atoi(line, &(map->mapinit)[i], &idx) == -1)
 			return (error_massage(ANSI_RED "INVALID MAP\n" ANSI_RES, -1));
-		if ((map->mapinit)[i].z > map->high)
-			map->high = (map->mapinit)[i].z;
+		set_high_low((map->mapinit)[i], map);
 		i++;
 	}
 	if (line[idx] && !(line[idx] == '\n' || line[idx] == ' '))
