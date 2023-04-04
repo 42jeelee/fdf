@@ -6,7 +6,7 @@
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 00:55:48 by jeelee            #+#    #+#             */
-/*   Updated: 2023/03/30 00:56:02 by jeelee           ###   ########.fr       */
+/*   Updated: 2023/04/04 18:19:30 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,20 @@ t_dot	get_max(t_map *map)
 			max.y = dot.y;
 	}
 	return (max);
+}
+
+void	map_all_init(t_map *map)
+{
+	map->height = 0;
+	map->width = 0;
+	map->high = 0;
+	map->mid = 0;
+	map->mapinit = 0;
+	map->map = 0;
+}
+
+int	error_massage(char *message, int ret)
+{
+	write(2, message, ft_strlen(message));
+	return (ret);
 }

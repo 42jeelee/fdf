@@ -6,7 +6,7 @@
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 16:45:37 by jeelee            #+#    #+#             */
-/*   Updated: 2023/03/30 03:18:01 by jeelee           ###   ########.fr       */
+/*   Updated: 2023/04/04 18:30:14 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,8 @@ int	map_widthjoin(t_map *map)
 	t_dot	*new;
 	int		i;
 
+	if (map->width == 0)
+		return (error_massage(ANSI_RED "NO DATA\n" ANSI_RES, -1));
 	new = (t_dot *)malloc(sizeof(t_dot) * (map->width * map->height));
 	if (!new)
 		return (-1);
