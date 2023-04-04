@@ -6,7 +6,7 @@
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 15:56:32 by jeelee            #+#    #+#             */
-/*   Updated: 2023/03/30 03:50:55 by jeelee           ###   ########.fr       */
+/*   Updated: 2023/04/04 17:44:26 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@
 # define WINDOW_MAX_HEIGHT 1800
 # define WINDOW_MAX_WIDTH 2000
 # define WINDOW_MARGIN 200
+
+# define X_EVENT_KEY_EXIT 17
 
 # define MOUSE_LEFT_BUTTON 1
 # define MOUSE_RIGHT_BUTTON 2
@@ -121,6 +123,7 @@ int		get_color(int pre_color, int next_color, int i, int size);
 void	bresenham(t_dot *d1, t_dot *d2, t_mlx *mlx);
 
 int		key_hook(int keycode, t_mlx *mlx);
+int		exit_hook(int keycode, t_mlx *mlx);
 int		mouse_hook(int keycode, int x, int y, t_mlx *mlx);
 
 int		free_map(t_map *map);
