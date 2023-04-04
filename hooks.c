@@ -6,16 +6,14 @@
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 15:42:54 by jeelee            #+#    #+#             */
-/*   Updated: 2023/04/04 17:45:40 by jeelee           ###   ########.fr       */
+/*   Updated: 2023/04/04 17:49:50 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int	exit_hook(int keycode, t_mlx *mlx)
+int	exit_hook(void)
 {
-	keycode++;
-	(void)mlx;
 	exit(0);
 	return (0);
 }
