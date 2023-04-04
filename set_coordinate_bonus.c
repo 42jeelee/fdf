@@ -6,7 +6,7 @@
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 16:08:48 by jeelee            #+#    #+#             */
-/*   Updated: 2023/03/30 04:08:45 by jeelee           ###   ########.fr       */
+/*   Updated: 2023/04/04 21:31:40 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,13 +60,15 @@ void	set_coordinate(t_mlx *mlx)
 
 	base.x = (mlx->map)->width / 2 + 1;
 	base.y = (mlx->map)->height / 2 + 1;
-	base.z = (mlx->map)->high / 2 + 1;
+	base.z = ((mlx->map)->high - (mlx->map)->low) / 2 + 1;
 	i = -1;
 	while (++i < (mlx->map)->width * (mlx->map)->height)
 	{
 		dot = &((mlx->map)->map)[i];
 		if (dot->x == base.x - 1 && dot->y == base.y - 1)
 			(mlx->map)->mid = dot;
+		if ((mlx->cam).color)
+			setting_dot_color(dot, (mlx->cam).color, mlx->map);
 		dot->x *= mlx->gap;
 		dot->y *= mlx->gap;
 		dot->z *= (mlx->cam).h;
@@ -86,13 +88,15 @@ void	update_coordinate(t_mlx *mlx)
 
 	base.x = (mlx->map)->width / 2 + 1;
 	base.y = (mlx->map)->height / 2 + 1;
-	base.z = (mlx->map)->high / 2 + 1;
+	base.z = ((mlx->map)->high - (mlx->map)->low) / 2 + 1;
 	i = -1;
 	while (++i < (mlx->map)->width * (mlx->map)->height)
 	{
 		dot = &((mlx->map)->map)[i];
 		if (dot->x == base.x - 1 && dot->y == base.y - 1)
 			(mlx->map)->mid = dot;
+		if ((mlx->cam).color)
+			setting_dot_color(dot, (mlx->cam).color, mlx->map);
 		dot->x *= mlx->gap;
 		dot->y *= mlx->gap;
 		dot->z *= (mlx->cam).h;

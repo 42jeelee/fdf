@@ -6,7 +6,7 @@
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 16:45:06 by jeelee            #+#    #+#             */
-/*   Updated: 2023/03/29 15:28:56 by jeelee           ###   ########.fr       */
+/*   Updated: 2023/04/04 19:52:22 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,12 @@ int	map_atoi(char *line, t_dot *dot, int *idx)
 	if (line[*idx] == ',')
 		return (get_dot_color(line, dot, idx));
 	return (0);
+}
+
+void	set_high_low(t_dot dot, t_map *map)
+{
+	if (dot.z > map->high)
+		map->high = dot.z;
+	if (dot.z < map->low)
+		map->low = dot.z;
 }
