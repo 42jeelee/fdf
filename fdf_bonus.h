@@ -6,7 +6,7 @@
 /*   By: jeelee <jeelee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 15:56:32 by jeelee            #+#    #+#             */
-/*   Updated: 2023/04/04 21:31:18 by jeelee           ###   ########.fr       */
+/*   Updated: 2023/04/05 15:26:18 by jeelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@
 # define KEY_D 2
 # define KEY_H 4
 # define KEY_C 8
+# define KEY_I 34
 # define KEY_J 38
 # define ESC_KEY 53
 
